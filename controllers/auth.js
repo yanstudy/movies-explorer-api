@@ -2,7 +2,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const userModel = require('../models/user');
 const AuthError = require('../errors/auth-err');
-const { SAULT_ROUNDS, JWT_SECRET } = require('../config');
+const { SAULT_ROUNDS, JWT_SECRET, NODE_ENV } = require('../config');
 
 // Создание пользователя
 const createUser = (req, res, next) => {
@@ -34,7 +34,7 @@ const login = (req, res, next) => {
         .then((isValidPassword) => {
           if (!isValidPassword) throw new AuthError('Логин или пароль неправильный');
 
-          const token = jwt.sign({ _id: user._id }, JWT_SECRET, { expiresIn: '7d' });
+          const token = jwt.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : 'JWT', { expiresIn: '7d' });
 
           return res.status(200).cookie('jwt', token, {
             maxAge: 3600000 * 24 * 7,
