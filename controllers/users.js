@@ -8,7 +8,7 @@ const getUser = (req, res, next) => {
   userModel
     .findById(userId)
     .orFail(new NotFoundError('Нет такого пользователя'))
-    .then((user) => res.status(200).send(user))
+    .then(({ email, name }) => res.status(200).send({ email, name }))
     .catch(next);
 };
 
@@ -17,8 +17,8 @@ const updateUser = (req, res, next) => {
   const userId = req.user._id;
   userModel
     .findByIdAndUpdate(userId, req.body, { new: true, runValidators: true })
-    .then((user) => {
-      res.status(200).send(user);
+    .then(({ email, name }) => {
+      res.status(200).send({ email, name });
     })
     .catch(next);
 };

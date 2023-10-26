@@ -15,7 +15,7 @@ const createUser = (req, res, next) => {
       email, password: hash, name,
     })
       .then((newUser) => {
-        const { password: hashPassword, ...userWithoutPassword } = newUser.toObject();
+        const { password: hashPassword, _id, ...userWithoutPassword } = newUser.toObject();
         res.status(201).send(userWithoutPassword);
       })
       .catch(next);
