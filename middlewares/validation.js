@@ -19,7 +19,7 @@ const checkMovieInfo = celebrate({
     movieId: Joi.number().required(),
     nameRU: Joi.string().required(),
     nameEN: Joi.string().required(),
-  }).unknown(true),
+  }),
 });
 
 const checkUserInfo = celebrate({
