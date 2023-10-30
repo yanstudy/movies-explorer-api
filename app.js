@@ -23,6 +23,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(helmet());
 app.use(requestLogger); // подключаем логгер запросов
+app.use(limiter);
 
 app.use(cookieParser());
 
@@ -30,7 +31,6 @@ app.use(appRouter);
 
 app.use(errorLogger); // подключаем логгер ошибок
 app.use(errors());
-app.use(limiter);
 
 // Центральный обработчик ошибок
 app.use(errorHandler);
