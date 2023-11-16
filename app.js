@@ -9,6 +9,7 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 const appRouter = require('./routes/index');
 const { PORT, DB_URL } = require('./config');
 const { limiter } = require('./middlewares/limiter');
+const cors = require('./middlewares/cors');
 
 // База данных
 mongoose
@@ -18,6 +19,7 @@ mongoose
   .then(() => console.log('Connected to db'));
 
 const app = express();
+app.use(cors);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
