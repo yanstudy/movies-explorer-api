@@ -20,8 +20,8 @@ const createUser = (req, res, next) => {
         res.status(201).cookie('jwt', token, {
           maxAge: 3600000 * 24 * 7,
           httpOnly: true,
-          secure: true,
           sameSite: 'Strict',
+          domain: 'https://yanstudymovies.nomoredomainsmonster.ru/',
         }).send(userWithoutPassword);
       })
       .catch(next);
@@ -45,8 +45,8 @@ const login = (req, res, next) => {
           return res.status(200).cookie('jwt', token, {
             maxAge: 3600000 * 24 * 7,
             httpOnly: true,
-            secure: true,
             sameSite: 'Strict',
+            domain: 'https://yanstudymovies.nomoredomainsmonster.ru/',
           }).send({ message: 'Вы вошли в аккаунт' });
         });
     })
