@@ -22,7 +22,6 @@ const createUser = (req, res, next) => {
           httpOnly: true,
           sameSite: 'None',
           secure: true,
-          domain: 'nomoredomainsmonster.ru',
         }).send(userWithoutPassword);
       })
       .catch(next);
@@ -48,7 +47,6 @@ const login = (req, res, next) => {
             httpOnly: true,
             sameSite: 'None',
             secure: true,
-            domain: 'nomoredomainsmonster.ru',
           }).send({ message: 'Вы вошли в аккаунт' });
         });
     })
