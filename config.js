@@ -12,6 +12,8 @@ const allowedCors = [
   'https://praktikum.tk',
   'http://praktikum.tk',
   'http://localhost:3000',
+  'https://yanstudymovies.nomoredomainsmonster.ru',
+  'http://yanstudymovies.nomoredomainsmonster.ru',
 ];
 
 module.exports = {
