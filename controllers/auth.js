@@ -21,7 +21,7 @@ const createUser = (req, res, next) => {
           maxAge: 3600000 * 24 * 7,
           httpOnly: true,
           sameSite: 'Strict',
-          domain: 'https://yanstudymovies.nomoredomainsmonster.ru/',
+          domain: 'https://api.yanstudymovies.nomoredomainsmonster.ru/',
         }).send(userWithoutPassword);
       })
       .catch(next);
@@ -46,7 +46,7 @@ const login = (req, res, next) => {
             maxAge: 3600000 * 24 * 7,
             httpOnly: true,
             sameSite: 'Strict',
-            domain: 'https://yanstudymovies.nomoredomainsmonster.ru/',
+            domain: 'https://api.yanstudymovies.nomoredomainsmonster.ru/',
           }).send({ message: 'Вы вошли в аккаунт' });
         });
     })
