@@ -7,8 +7,6 @@ const {
 
 // Список доступных урлов
 const allowedCors = [
-  'https://yanstudymovies.nomoredomainsrocks.ru',
-  'http://yanstudymovies.nomoredomainsrocks.ru',
   'https://praktikum.tk',
   'http://praktikum.tk',
   'http://localhost:3000',
