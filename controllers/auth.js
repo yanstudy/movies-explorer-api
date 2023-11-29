@@ -45,7 +45,7 @@ const login = (req, res, next) => {
           return res.status(200).cookie('jwt', token, {
             maxAge: 3600000 * 24 * 7,
             httpOnly: true,
-            sameSite: 'None',
+            SameSite: 'none',
             secure: true,
           }).send({ message: 'Вы вошли в аккаунт' });
         });
