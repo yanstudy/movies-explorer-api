@@ -46,7 +46,7 @@ const login = (req, res, next) => {
             maxAge: 3600000 * 24 * 7,
             httpOnly: true,
             sameSite: 'none',
-            secure: 'false',
+            secure: false,
           }).send({ message: 'Вы вошли в аккаунт' });
         });
     })
